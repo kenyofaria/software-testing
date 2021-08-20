@@ -6,7 +6,7 @@
 	<artifactId>jenkins-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>jenkings-demo</name>
+	<name>jenkins-demo</name>
 	<description>jenkins demo</description>
 
 	<dependencies>

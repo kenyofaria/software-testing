@@ -20,27 +20,36 @@ class ClienteServiceUnitTest {
 
 	private ClienteService clienteService;
 	private ClienteRepository mock;
-	
-	
+
 	@BeforeEach
 	public void init() {
 		mock = Mockito.mock(ClienteRepository.class);
 		clienteService = new ClienteService(mock);
 	}
-	
+
 	@AfterEach
 	public void reset() {
 		mock = null;
 		clienteService = null;
 	}
-	
+
 	@Test
-	void testCadastra() {
+	void deveCadastrarUmCliente() {
 		Cliente cliente = new Cliente("kenyo", 'm', LocalDate.of(1980, Month.FEBRUARY, 25));
-		Mockito.when(mock.getList()).thenReturn(Arrays.asList(cliente));
+		Mockito.when(mock.getList()).thenReturn(Arrays.asList(cliente)); // ensinando o mock
 		clienteService.cadastra(cliente);
 		List<Cliente> clientes = clienteService.listagem();
 		assertTrue(clientes.contains(cliente));
 	}
 
+	@Test
+	void naoDeveCadastrarUmCliente_QuandoNomeVazio() {
+		Cliente cliente = new Cliente("", 'm', LocalDate.of(1980, Month.FEBRUARY, 25));
+
+		RuntimeException thrown = assertThrows(RuntimeException.class, () -> clienteService.cadastra(cliente),
+				"o campo nome e obrigatorio");
+
+		assertTrue(thrown.getMessage().contains("o campo nome e obrigatorio"));
+
+	}
 }

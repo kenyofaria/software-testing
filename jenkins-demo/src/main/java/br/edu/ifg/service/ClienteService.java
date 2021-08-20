@@ -12,12 +12,13 @@ public class ClienteService {
 
 	public ClienteService(ClienteRepository clienteRepository) {
 		this.clienteRepository = clienteRepository;
-		// TODO Auto-generated constructor stub
 	}
 	
 	
 	public void cadastra(Cliente cliente) {
-		this.clienteRepository.add(cliente);
+		if(cliente.getNome().trim().isEmpty()) //um test case que afirma e outro que nega
+			throw new RuntimeException("o campo nome e obrigatorio"); //test case
+		this.clienteRepository.add(cliente); //test case
 	}
 	
 	public List<Cliente> listagem(){
