@@ -1,0 +1,5 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+software-testing,br.edu.ifg,App,34,0,0,0,8,0,2,0,2,0
+software-testing,br.edu.ifg,MathOperation,10,31,3,3,2,7,3,5,0,5
+software-testing,br.edu.ifg,Person,23,22,1,1,10,7,7,2,6,2
+software-testing,br.edu.ifg,Product,5,0,0,0,2,0,2,0,2,0

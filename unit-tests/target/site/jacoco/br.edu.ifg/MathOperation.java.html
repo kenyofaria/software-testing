@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MathOperation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">software-testing</a> &gt; <a href="index.source.html" class="el_package">br.edu.ifg</a> &gt; <span class="el_source">MathOperation.java</span></div><h1>MathOperation.java</h1><pre class="source lang-java linenums">package br.edu.ifg;
+
+<span class="fc" id="L3">public class MathOperation {</span>
+	
+
+	public double sum(double a, double b) {
+<span class="fc" id="L7">		return a+b;</span>
+	}
+	//cobertura -&gt; 3 casos de testes
+	public double sub(double a, double b) {
+<span class="pc bpc" id="L11" title="2 of 4 branches missed.">		if(a &gt; Double.MAX_VALUE || b &gt; Double.MAX_VALUE)</span>
+<span class="nc" id="L12">			throw new RuntimeException(&quot;o maior valor permitido para cada numero �: &quot; + Double.MAX_VALUE);</span>
+<span class="fc" id="L13">		return a-b;</span>
+	}
+	public double multi(double a, double b) {
+<span class="fc" id="L16">		return a*b;</span>
+	}
+	
+	//complexidade ciclomatica
+	public double div(double a, double b) {
+<span class="pc bpc" id="L21" title="1 of 2 branches missed.">		if(b == 0)</span>
+<span class="nc" id="L22">			throw new RuntimeException(&quot;segundo parametro deve ser diferente de zero&quot;);</span>
+<span class="fc" id="L23">		return a/b;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
