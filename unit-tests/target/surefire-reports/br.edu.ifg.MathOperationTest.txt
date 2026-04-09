@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: br.edu.ifg.MathOperationTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in br.edu.ifg.MathOperationTest
+naoDeveEfetuarDivQuandoSegundoParametroForZero  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: org/junit/function/ThrowingRunnable
+	at br.edu.ifg.MathOperationTest.naoDeveEfetuarDivQuandoSegundoParametroForZero(MathOperationTest.java:77)
+Caused by: java.lang.NoClassDefFoundError: org/junit/function/ThrowingRunnable
+	at br.edu.ifg.MathOperationTest.naoDeveEfetuarDivQuandoSegundoParametroForZero(MathOperationTest.java:77)
+Caused by: java.lang.ClassNotFoundException: org.junit.function.ThrowingRunnable
+	at br.edu.ifg.MathOperationTest.naoDeveEfetuarDivQuandoSegundoParametroForZero(MathOperationTest.java:77)
+
