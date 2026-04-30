@@ -16,10 +16,11 @@ public class ProductService {
 
     @Transactional
     public Product create(Product product) {
-        if (product.readyForPersistence()) {
-            return productRepository.save(product);
-        }
-        throw new IllegalArgumentException("Invalid product data");
+        return productRepository.save(product);
+//        if (product.readyForPersistence()) {
+//            return productRepository.save(product);
+//        }
+//        throw new IllegalArgumentException("Invalid product data");
     }
 
     public Product getById(Long id) {
