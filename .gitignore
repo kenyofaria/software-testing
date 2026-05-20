@@ -32,3 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 /.mvn/wrapper/maven-wrapper.properties
+
+### Secrets ###
+key.json
+*.json.key
+.env

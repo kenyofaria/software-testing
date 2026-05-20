@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -14,8 +15,22 @@ import java.math.BigDecimal;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+ * Service integration test: uses SQLite as an embedded, file-less database.
+ *
+ * The "sqlite" profile activates application-sqlite.properties (in src/test/resources),
+ * which overrides the default H2 datasource with SQLite. No Docker or external server
+ * is required — SQLite runs entirely in-process.
+ *
+ * Why SQLite here instead of Testcontainers?
+ *   Service tests validate business logic + JPA persistence without going through the
+ *   HTTP layer. SQLite is fast, zero-config, and sufficient for that scope.
+ *   Controller tests (ProductControllerIT) use a real MySQL container to validate the
+ *   full stack including MySQL-specific behaviour.
+ */
 @SpringBootTest
 @Transactional
+@ActiveProfiles("sqlite")
 class ProductServiceIT {
 
     @Autowired
