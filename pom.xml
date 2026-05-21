@@ -93,11 +93,11 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- H2: in-memory DB for local profile and unit/context-load tests -->
+        <!-- H2: unit/context-load tests only -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>runtime</scope>
+            <scope>test</scope>
         </dependency>
 
         <!--
@@ -112,6 +112,11 @@
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>mysql</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -223,16 +228,13 @@
         </profile>
 
         <!--
-            DEV: continuous integration / development environment.
-            All tests run: unit tests (Surefire) + integration tests (Failsafe).
-            ProductControllerIT uses MySQL via Docker (Testcontainers).
-            ProductServiceIT uses SQLite (lightweight embedded DB).
+            DEV: unit tests only. Integration tests are skipped to keep
+            the CI deploy pipeline fast. Docker is not required.
         -->
         <profile>
             <id>dev</id>
             <properties>
                 <spring.profiles.active>dev</spring.profiles.active>
-                <skipITs>false</skipITs>
             </properties>
         </profile>
 

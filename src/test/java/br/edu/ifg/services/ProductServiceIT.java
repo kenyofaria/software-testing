@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -29,8 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *   full stack including MySQL-specific behaviour.
  */
 @SpringBootTest
-@Transactional
-@ActiveProfiles("sqlite")
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class ProductServiceIT {
 
     @Autowired
@@ -40,6 +39,7 @@ class ProductServiceIT {
     private ProductRepository productRepository;
 
     @Test
+    @Transactional
     @DisplayName("Should persist and retrieve a product from the database")
     void createAndRead_Integration() {
         // Arrange
@@ -59,6 +59,7 @@ class ProductServiceIT {
     }
 
     @Test
+    @Transactional
     @DisplayName("Should update an existing product in the database")
     void update_Integration() {
         // Arrange
@@ -86,6 +87,7 @@ class ProductServiceIT {
     }
 
     @Test
+    @Transactional
     @DisplayName("Should delete a product and no longer find it")
     void delete_Integration() {
         // Arrange

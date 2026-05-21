@@ -1,0 +1,8 @@
+services:
+  mysql:
+    image: mysql:8.0.34
+    environment:
+      MYSQL_DATABASE: sell_system_local
+      MYSQL_ROOT_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      MYSQL_USER: ${SPRING_DATASOURCE_USERNAME}
+      MYSQL_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
