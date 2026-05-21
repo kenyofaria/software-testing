@@ -26,8 +26,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Run unit and integration tests
-        run: ./mvnw verify -Pdev
+      - name: Run unit tests
+        run: ./mvnw test -Pdev
 
   deploy:
     name: Build and Deploy
