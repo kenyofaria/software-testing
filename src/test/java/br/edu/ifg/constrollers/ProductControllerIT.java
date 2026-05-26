@@ -41,6 +41,8 @@ class ProductControllerIT {
     @Container
     static MySQLContainer<?> mysql = new MySQLContainer<>("mysql:8.0.34");
 
+    //dummy comment to test cicd pipeline
+
     @DynamicPropertySource
     static void overrideDatasourceProperties(DynamicPropertyRegistry registry) {
         registry.add("spring.datasource.url",                mysql::getJdbcUrl);
