@@ -61,5 +61,6 @@ jobs:
             --region=${{ env.REGION }} \
             --platform=managed \
             --allow-unauthenticated \
+            --add-cloudsql-instances=${{ env.PROJECT_ID }}:${{ env.REGION }}:sell-system-mysql \
             --set-env-vars="SPRING_PROFILES_ACTIVE=dev" \
             --set-secrets="SPRING_DATASOURCE_URL=DEV_DB_URL:latest,SPRING_DATASOURCE_USERNAME=DEV_DB_USERNAME:latest,SPRING_DATASOURCE_PASSWORD=DEV_DB_PASSWORD:latest"
