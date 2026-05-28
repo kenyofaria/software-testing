@@ -36,3 +36,4 @@ build/
 key.json
 *.json.key
 .env
+infra/*-sa-key.json

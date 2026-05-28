@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
@@ -86,5 +88,10 @@ public class ProductController {
             @Parameter(description = "ID of the product to delete", required = true)
             @PathVariable Long id) {
         productService.delete(id);
+    }
+
+    @GetMapping
+    public List<Product> list() {
+        return productService.list();
     }
 }
