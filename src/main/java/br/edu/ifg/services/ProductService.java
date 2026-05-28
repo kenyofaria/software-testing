@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -47,5 +49,9 @@ public class ProductService {
             throw new EntityNotFoundException("Product not found");
         }
         productRepository.deleteById(id);
+    }
+
+    public List<Product> list() {
+        return productRepository.findAll();
     }
 }
